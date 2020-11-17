@@ -196,20 +196,33 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void btnTriangleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTriangleMouseClicked
 
         // A vous de jouer
+        
         if(txtNb.getText().compareTo("")==0){
             JOptionPane.showMessageDialog(this, "Veuillez saisir un nombre");
         }
         else
         {
-           DefaultTableModel();
+           DefaultTableModel dtmTriangle = new DefaultTableModel();
+            dtmTriangle=(DefaultTableModel)tblTriangle.getModel();
            Vector v;
-           v = new Vector();
-           for(int i=1; i<Integer.parseInt(txtNb.getText()); i++)
-           {
-               v.add("*");
-               tblTriangle.
-               
-           }
+           int nbetoiles=1;
+           int nbespaces=Integer.parseInt(txtNb.getText());
+          for(int i=1; i<=Integer.parseInt(txtNb.getText()); i++){
+              v = new Vector(); 
+              for(int j=1; j<=nbespaces-1; j++)
+              {
+                    v.add("");
+              }
+              nbespaces=nbespaces-1;
+              for(int k=1; k<=nbetoiles; k++){
+                   
+                    v.add("*");
+                    
+              }
+                    nbetoiles=nbetoiles+2;
+                    dtmTriangle.addRow(v);
+            }
+
         }
 
         
